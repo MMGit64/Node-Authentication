@@ -33,9 +33,9 @@ router.post('/register', (req,res) => {
     }
 
     if (errors.length > 0) {
-        res.render('register', {
-            errors,
-            name,
+        res.render('register', {            //Passing the variables
+            errors,                         //To show the errors 
+            name,                           //As redirected back to register page
             email,
             password,
             password2
@@ -43,9 +43,9 @@ router.post('/register', (req,res) => {
     }
     else {
         //Validate the Pass:
-        User.findOne({ email: email})   //Returns a promise
-        .then(user => {                 //Check for this user
-           if (user){
+        User.findOne({ email: email})   //Mongoose method to find a user record, returns a promise
+        .then(user => {                 //Checks for availability of this user
+           if (user){                   //If user already exists --> error
                 //User Exists
                 errors.push({ msg: "Email is already registered"})
                 res.render('register', {
@@ -55,7 +55,7 @@ router.post('/register', (req,res) => {
                     password,
                     password2
                 });
-           } else {
+           } else {                         //If no user, a new one will be created through registration
                const newUser = new User({
                    name,
                    email,
@@ -63,7 +63,7 @@ router.post('/register', (req,res) => {
                });
 
                //Hash Password
-               bcrypt.genSalt(10, (err, salt) => 
+               bcrypt.genSalt(10, (err, salt) =>        //salt is the randomised string of characters to hash password
                bcrypt.hash(newUser.password, salt, (err, hash) => {
                    if(err) throw err;
 

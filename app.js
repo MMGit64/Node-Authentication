@@ -36,7 +36,7 @@ app.use(flash());
 
 
 //Global Vars for different colors for different messages
-app.use((req, res, next) =>{
+app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     next();
