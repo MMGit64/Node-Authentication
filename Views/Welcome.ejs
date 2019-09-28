@@ -1,12 +1,168 @@
-<div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body text-center">
-        <h1><i class="fab fa-node-js fa-3x"></i></h1>
-        <p>Create an account or login</p>
-        <a href="/users/register" class="btn btn-primary btn-block mb-2"
-          >Register</a
-        >
-        <a href="/users/login" class="btn btn-secondary btn-block">Login</a>
-      </div>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css">
+
+    <title>Invoice</title>
+
+    <style type="CSS/text">
+        .label{
+            font-family: monospace, Lucida Console;
+            color:white;
+        }
+        .card {
+            box-shadow: 0 4px 8px 0;
+            transition: 0.3s;
+        }
+        nav.white{
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function Sum(){
+            num1 = document.getElementById("inpt1").value;
+            num2 = document.getElementById("inpt2").value;
+            document.getElementById("sum").innerHTML = (parseInt(num1) + parseInt(num2)).toFixed(2);
+        }
+
+        function VAT(){
+        num1 = document.getElementById("inpt1").value;
+        num2 = document.getElementById("inpt2").value;
+        vatPercent = document.getElementById("percent").value;
+        document.getElementById("VAT").innerHTML = ((parseInt(num1) + parseInt(num2) + parseInt(vatPercent))/100).toFixed(2);
+        }
+
+        function GrandTot(){ 
+        num1 = document.getElementById("inpt1").value;
+        num2 = document.getElementById("inpt2").value;
+        vatPercent = document.getElementById("percent").value;
+        document.getElementById("GrSum").innerHTML = (parseInt(num1) + parseInt(num2) +(parseInt(num1) + parseInt(num2) + parseInt(vatPercent))/100).toFixed(2);
+        }
+    </script>
+    <nav class="navbar-nav" style="background-color: darkred; position: sticky; top: 0; z-index: 1">
+        <div class="row mt-1 mb-0">
+            <div class="col-md-3 m-auto">
+                <img src="./img/Invoice.png" width=100>
+            </div>
+            <div class="col-md-3 m-auto">
+                <h1 class="lead" style="font-size:20pt; 
+                font-family: 'Lucida Sans', 
+                'Lucida Sans Regular', 
+                'Lucida Grande', 
+                'Lucida Sans Unicode', 
+                Geneva, Verdana, sans-serif">
+                Invoice Calculator</h1>
+            </div>
+            <div class="col-md-3 m-auto">
+                <ul>
+                    <a href="#" style="float: left" class="mr-3"><li style="display:inline-block">Calculator</li></a>
+                    <a href="#" style="float: left" class="mr-3"><li style="display:inline-block">Register</li></a>
+                    <a href="#" style="float: left" class="mr-1"><li style="display:inline-block">Contact</li></a>
+                    <a href="" style="float: left">
+                        <li style="display:inline-block">
+                          <a href="/users/login" class="btn btn-primary btn-block">Login</a>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row mt-5">
+        <div class="col-md-6 mt-5 mb-5 ml-auto mr-auto">
+            <div class="card">
+                <form name="calculator">
+                    <label class="label">Enter first value:</label>
+                    <input type="text" id="inpt1" size="4"/>
+                    <br><br>
+                    <label class="label">Enter second value:</label>
+                    <input type="text" id="inpt2" size="4"/><br><br>
+                    <label class="label">Enter VAT amount (%):</label>
+                    <input type="text" id="percent" size="4"/><br><br>
+                    <input type="button" onClick="Sum()" value="Total"/>
+                    <input type="button" onClick="VAT()" Value="VAT" />
+                    <input type="button" onClick="GrandTot()" Value="Grand Total" />
+                </form>
+            </div>
+            <label class="label">Total Amount: £</label><span id="sum"></span><br>
+            <label class="label">VAT Amount: £</label><span id="VAT"></span><br>
+            <label class="label">Grand Total: £</label><span id="GrSum"></span>
+        </div>
     </div>
-  </div>
+
+    <hr style="background-color:darkred">
+    
+    <div class="container mt-5">
+        <div class="col-md-3 m-auto">
+            <h1 class="lead" style="text-align: center; display: inline-block; font-size: 20pt">Register With Invoice</h1>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-3 m-auto">
+                <div class="row">
+                    <div class="col-md-2 m-auto">
+                        <i class="fa fa-check-circle" style="font-size: 3rem"></i>
+                        <p class="lead" style="font-size:10pt;
+                        display: inline-block;
+                        font-family: 'Lucida Sans', 
+                        'Lucida Sans Regular', 
+                        'Lucida Grande', 
+                        'Lucida Sans Unicode', 
+                        Geneva, Verdana, sans-serif">Free Of Use</p>
+                    </div>
+                    <div class="col-md-2 m-auto">
+                        <i class= "fa fa-bell" style="font-size: 3rem"></i>
+                        <p class="lead" style="font-size:10pt;
+                        display: inline-block;
+                        font-family: 'Lucida Sans', 
+                        'Lucida Sans Regular', 
+                        'Lucida Grande', 
+                        'Lucida Sans Unicode', 
+                         Geneva, Verdana, sans-serif">Keep Updated With Latest Economic Changes</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 m-auto">
+                        <i class="fa fa-certificate" style="font-size: 3rem"></i>
+                        <p class="lead" style="font-size:10pt;
+                        display: inline-block;
+                        font-family: 'Lucida Sans', 
+                        'Lucida Sans Regular', 
+                        'Lucida Grande', 
+                        'Lucida Sans Unicode', 
+                        Geneva, Verdana, sans-serif">Awarded As The Most Reliable &amp Accurate Measure For Invoice Payments</p>
+                    </div>
+                    <div class="col-md-2 m-auto">
+                        <i class="fa fa-language" style="font-size: 3rem"></i>
+                        <p class="lead" style="font-size:10pt;
+                        display: inline-block;
+                        font-family: 'Lucida Sans', 
+                        'Lucida Sans Regular', 
+                        'Lucida Grande', 
+                        'Lucida Sans Unicode', 
+                        Geneva, Verdana, sans-serif">Easily Translatable To Other Languages &amp Currencies</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 m-auto">
+              <div class="row mt-5">
+                <div class="col-md-6 m-auto">
+                  <div class="card card-body text-center">
+                    <h1><i class="fa fa-cubes fa-3x"></i></h1>
+                    <p>Create an account or login</p>
+                    <a href="/users/register" class="btn btn-primary btn-block mb-2"
+                      >Register</a
+                    >
+                    <a href="/users/login" class="btn btn-secondary btn-block">Login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 m-auto">
+                <img src="./img/Register.jpg" width="400">
+            </div>
+        </div>
+    </div>
