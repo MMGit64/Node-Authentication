@@ -3,9 +3,12 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');         //Special area of 'session' to store messages
 const session = require('express-session');      //To handle user data beteween different requests
-
+const passport = require('passport');
 
 const app = express();  
+
+//Passport Config
+require('./Config/Passport')(passport);
 
 //DB CONFIG
 const db = require('./Config/key').MongoURI;
@@ -31,6 +34,10 @@ app.use(session({
   }));
 
 
+//PASSPORT MIDDLEWARE
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Connect FLASH (middleware)
 app.use(flash());
 
@@ -39,8 +46,9 @@ app.use(flash());
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');    // --> Flash message for passport
     next();
-})
+});
 
 
 app.use('/', require('./Routes/index'));

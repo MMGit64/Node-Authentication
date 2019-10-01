@@ -47,7 +47,7 @@
     <nav class="navbar-nav" style="background-color: darkred; position: sticky; top: 0; z-index: 1">
         <div class="row mt-1 mb-0">
             <div class="col-md-3 m-auto">
-                <img src="./img/Invoice.png" width=100>
+              <i class="fa fa-envelope-square" style="font-size: 7rem"></i>
             </div>
             <div class="col-md-3 m-auto">
                 <h1 class="lead" style="font-size:20pt; 
@@ -60,18 +60,20 @@
             </div>
             <div class="col-md-3 m-auto">
                 <ul>
-                    <a href="#" style="float: left" class="mr-3"><li style="display:inline-block">Calculator</li></a>
-                    <a href="#" style="float: left" class="mr-3"><li style="display:inline-block">Register</li></a>
-                    <a href="#" style="float: left" class="mr-1"><li style="display:inline-block">Contact</li></a>
+                    <a href="/" style="float: left; font-size: 9pt" class="mr-2"><li style="display:inline-block">Home</li></a>
+                    <a href="#calculator" style="float: left; font-size: 9pt" class="mr-2"><li style="display:inline-block">Calculator</li></a>
+                    <a href="#register" style="float: left; font-size: 9pt" class="mr-2"><li style="display:inline-block">Register</li></a>
+                    <a href="#contact" style="float: left; font-size: 9pt" class="mr-2"><li style="display:inline-block">Contact</li></a><br>
                     <a href="" style="float: left">
                         <li style="display:inline-block">
                           <a href="/users/login" class="btn btn-primary btn-block">Login</a>
                         </li>
-                    </a>
+                  </a>
                 </ul>
             </div>
         </div>
     </nav>
+    <section id="calculator" >
     <div class="row mt-5">
         <div class="col-md-6 mt-5 mb-5 ml-auto mr-auto">
             <div class="card">
@@ -93,10 +95,12 @@
             <label class="label">Grand Total: £</label><span id="GrSum"></span>
         </div>
     </div>
+    </section>
 
     <hr style="background-color:darkred">
     
-    <div class="container mt-5">
+    <section id="register">
+    <div class="container mt-5" >
         <div class="col-md-3 m-auto">
             <h1 class="lead" style="text-align: center; display: inline-block; font-size: 20pt">Register With Invoice</h1>
         </div>
@@ -162,7 +166,8 @@
               </div>
             </div>
             <div class="col-md-3 m-auto">
-                <img src="./img/Register.jpg" width="400">
+                <i class="fa fa-desktop" style="font-size: 15rem"></i>
             </div>
         </div>
     </div>
+    </section>
