@@ -56,6 +56,10 @@ app.use('/', require('./Routes/index'));
 
 app.use('/users', require('./Routes/Users'));
 
+app.get('/', (req, res) => res.json({
+  msg: "Hello!"
+}));
+
 
 const PORT = process.env.PORT || 5000;      //WHERE 'APP' WILL RUN ON
 
