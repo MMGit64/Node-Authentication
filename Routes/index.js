@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {ensureAuthenticated } = require('../config/auth');
+const {ensureAuthenticated } = require('../Config/Auth');
 
 router.get('/', (req, res) => res.render('Welcome'));       //render the message 'welcome' based on content in welcome.ejs
                                                             //and <%- body %> in layout.ejs
