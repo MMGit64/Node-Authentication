@@ -20,16 +20,7 @@ mongoose.connect(db, {useNewUrlParser: true})
 
 //EJS
 app.use(expressLayouts);
-app.set('views',  '/../app/views');
 app.set('view engine', 'ejs');
-
-
-
-
-//app.route('/')
-//  .get((req, res) => {
-//    res.render('Welcome');
-//});
 
 //BODYPARSER
 app.use(express.urlencoded ({ extended : false}));      //We can now get data from our form from req.body
@@ -65,9 +56,9 @@ app.use('/', require('./Routes/index'));
 
 app.use('/users', require('./Routes/Users'));
 
-//app.get('/', (req, res) => res.json({
-//  msg: "Hello!"
-//}));
+app.get('/', (req, res) => res.json({
+  msg: "Hello!"
+}));
 
 
 const PORT = process.env.PORT || 5000;      //WHERE 'APP' WILL RUN ON
