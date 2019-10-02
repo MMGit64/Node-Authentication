@@ -20,12 +20,16 @@ mongoose.connect(db, {useNewUrlParser: true})
 
 //EJS
 app.use(expressLayouts);
+app.set('views',  '/../app/views');
 app.set('view engine', 'ejs');
 
-app.route('/')
-  .get((req, res) => {
-    res.render('index.js');
-  });
+
+
+
+//app.route('/')
+//  .get((req, res) => {
+//    res.render('Welcome');
+//});
 
 //BODYPARSER
 app.use(express.urlencoded ({ extended : false}));      //We can now get data from our form from req.body
