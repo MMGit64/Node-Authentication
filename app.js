@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 
 app.route('/')
   .get((req, res) => {
-    res.render(process.cwd() + '/views/Welcome.ejs', {title: 'Hello', message: 'Please login'});
+    res.render('index.js');
   });
 
 //BODYPARSER
